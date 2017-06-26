@@ -1,13 +1,25 @@
+<html>
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+</head>
+<body>
+
 {% if latest_question_list %}
-<ul>
-    {% for question in latest_question_list %}
-    <li>
-        <a href="/polls/{{ question.id }}"/>
-        {{ question.question_text }}
-        </a>
-    </li>
-    {% endfor %}
-</ul>
+    <table class="table table-stripped">
+        {% for question in latest_question_list %}
+            <tr>
+                <th>
+                    <a href="/polls/{{ question.id }}"/>
+                    {{ question.question_text }}
+                    </a>
+                </th>
+            </tr>
+        {% endfor %}
+    </table>
 {% else %}
-<p>No polls are available.</p>
+    <p>No polls are available.</p>
 {% endif %}
+</body>
+</html>
